@@ -1,0 +1,35 @@
+plugins {
+    id "org.jetbrains.intellij" version "0.0.26"
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+
+
+intellij {
+    version ideaVersion
+    pluginName 'TestPlugin'
+    downloadSources false
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src', 'gen']
+            include '**/*.java'
+        }
+        resources.srcDirs = ['resources']
+    }
+
+    test {
+        java {
+            srcDirs = ['test']
+            include '**/*.java'
+        }
+    }
+}
